@@ -4,11 +4,11 @@ import {
     Column, 
     CreateDateColumn, 
     UpdateDateColumn, 
-    getConnection,
+    BaseEntity
 } from 'typeorm';
 
 @Entity()
-export class User {
+export class User extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
     @Column('varchar', { length: 150 })
@@ -31,10 +31,6 @@ export class User {
     createdAt: Date;
     @UpdateDateColumn()
     updatedAt: Date;
-
-    save(){
-       return getConnection().getRepository('User').save(this);
-    }
 }
 
 export default User;

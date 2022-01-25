@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import {getConnection} from 'typeorm';
+import { v4 as uuidV4 } from 'uuid';
 import User from '../../entities/user';
 const router = express.Router()
 
@@ -21,18 +21,21 @@ router.post('/', async (req: Request, res: Response)=>{
             email
         } = req.body as UserInput;
     
+        // TODO: validation for inputs
+
         const user = new User();
+        user.id = uuidV4();
         user.firstName = firstName;
         user.middleName = middleName =! null ? middleName : '';
         user.lastName = lastName;
         user.mobile = mobile;
         user.email = email;
     
-    
         let newUser = await user.save();
         if(!newUser){
             throw new Error();
         }
+
         return res.send(newUser);
     }   catch(error){
         if(error instanceof Error){
@@ -48,3 +51,5 @@ router.post('/', async (req: Request, res: Response)=>{
         });
     }
 });
+
+export default router;
