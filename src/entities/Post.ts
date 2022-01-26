@@ -35,4 +35,9 @@ export default class Post extends BaseEntity {
         createForeignKeyConstraints: true
     })
     author: Promise<User>;
+
+    // @ManyToOne(() => Post, (post) => post.parentId, {
+    //     createForeignKeyConstraints: true
+    // })
+    // parentPost: Promise<User>;
 }
