@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import { v4 as uuidV4 } from 'uuid';
-import User from '../../entities/user';
+import User from '../../entities/User';
 const router = express.Router()
 
 interface UserInput {

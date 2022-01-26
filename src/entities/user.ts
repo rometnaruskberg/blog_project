@@ -4,11 +4,14 @@ import {
     Column, 
     CreateDateColumn, 
     UpdateDateColumn, 
-    BaseEntity
+    BaseEntity,
+    OneToMany
 } from 'typeorm';
+import Post from './Post';
+
 
 @Entity()
-export class User extends BaseEntity {
+export default class User extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
     @Column('varchar', { length: 150 })
@@ -31,6 +34,15 @@ export class User extends BaseEntity {
     createdAt: Date;
     @UpdateDateColumn()
     updatedAt: Date;
-}
 
-export default User;
+    @OneToMany(() => Post, (post) => post.author)
+    posts: Post[];
+//     Eager loating lisab teise tabeli andmed juurde alati p'ringuga
+//     @OneToMany(() => Post, (post) => post.author, { eager: true})
+//     posts: Post[];
+
+//     Lazy loading lisab teisest tabelist andmed, kui seda on vaja
+//     (nt salvestamise User.manager.save(post))
+//     @OneToMany(() => Post, (post) => post.author)
+//     posts: Promise<Post[]>;
+};
