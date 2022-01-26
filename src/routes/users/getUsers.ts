@@ -18,7 +18,7 @@ router.get('/', async (req: Request, res: Response) => {
       });
     }
 
-    return res.send(users);
+    return res.json({ users: users });
   } catch (error) {
     if (error instanceof Error) {
       return res.send({

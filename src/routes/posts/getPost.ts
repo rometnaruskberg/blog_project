@@ -15,8 +15,8 @@ router.get('/:id', async(req: Request, res: Response) => {
             })
         }
 
-            return res.send(post);
-    }catch(error){
+    return res.json(post);
+  } catch(error){
         if (error instanceof Error) {
             return res.send({
               error: 'Unable to find user',

@@ -15,7 +15,7 @@ router.get('/:id', async (req: Request, res: Response) => {
       });
     }
 
-    return res.send(user);
+    return res.json(user);
   } catch (error) {
     if (error instanceof Error) {
       return res.send({

@@ -39,6 +39,7 @@ router.post('/', async (req: Request, res: Response)=>{
         return res.send(newUser);
     }   catch(error){
         if(error instanceof Error){
+            console.log({ error: error.message });
             return res.send({ 
                 error: 'Unable to create new user', 
                 message: error.message 
