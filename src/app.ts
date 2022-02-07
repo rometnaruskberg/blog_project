@@ -5,7 +5,7 @@ App.use(express.json());
 
 App.use(router);
 App.get('/', (req, res) => {
-    res.json({ message: 'Hello!' });
+  res.json({ message: 'Hello!' });
 });
 
 export = App;

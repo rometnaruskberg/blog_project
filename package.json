@@ -4,28 +4,29 @@
   "description": "blog project for learning typescript",
   "main": "server.js",
   "scripts": {
-    "start": "ts-node ./src/server.ts",
-    "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "start": "nodemon ./src/server.ts",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/rometnaruskberg/blog_project.git"
+    "url": "git+https://github.com/mahoraz/blog_project.git"
   },
   "keywords": [
     "typescript",
     "nodejs",
     "typeorm"
   ],
-  "author": "Romet Naruskberg",
+  "author": "AJ",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/rometnaruskberg/blog_project/issues"
+    "url": "https://github.com/mahoraz/blog_project/issues"
   },
-  "homepage": "https://github.com/rometnaruskberg/blog_project#readme",
+  "homepage": "https://github.com/mahoraz/blog_project#readme",
   "dependencies": {
-    "@babel/core": "^7.16.12",
+    "@babel/core": "^7.0.0-0",
     "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
     "@types/express": "^4.17.13",
     "@types/jest": "^27.4.0",
     "@types/node": "^17.0.10",
@@ -38,7 +39,6 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@babel/preset-typescript": "^7.16.7",
     "jest": "^27.4.7",
     "ts-node": "^10.4.0"
   }

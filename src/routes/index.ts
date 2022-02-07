@@ -6,17 +6,17 @@ import getUsers from './users/getUsers';
 import getPost from './posts/getPost';
 import getPosts from './posts/getPosts';
 import createPost from './posts/createPost';
-const router = express.Router()
-var userRoutes : string[] = [];
+const router = express.Router();
+// var userRoutes: string[] = [];
 
-// fs.readdirSync(__dirname +'/user').forEach(function(file){
-//     userRoutes.push(file.substring(0,file.indexOf('.')));
+// fs.readdirSync(__dirname + '/user').forEach(function (file) {
+//   router.use('/users', async () => {
+//     return await import(__dirname.concat('\\user\\').concat(file));
+//   });
 // });
 // console.log(userRoutes.toString());
 
-
-
 router.use('/users', [createUser, getUser, getUsers]);
-router.use('/posts', [getPost, getPosts, createPost]);
+router.use('/posts', [createPost, getPost, getPosts]);
 
 export default router;
